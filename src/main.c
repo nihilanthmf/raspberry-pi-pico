@@ -10,15 +10,17 @@ int main() {
     gpio_init(LED_PIN);
     gpio_set_dir(LED_PIN, GPIO_OUT);
 
+    char message;
+
     while (true) {
-        printf("Hello from Raspberry Pi Pico!\n");
+        scanf("%c", &message);
 
-        // Turn LED on
-        gpio_put(LED_PIN, 1);
-        sleep_ms(500);
+        printf("you typed %c\n", message);
 
-        // Turn LED off
-        gpio_put(LED_PIN, 0);
-        sleep_ms(500);
+        if (message == '1') {
+            gpio_put(LED_PIN, 1);
+        } else{
+            gpio_put(LED_PIN, 0);
+        }
     }
 }
