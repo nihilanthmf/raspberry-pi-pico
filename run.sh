@@ -6,4 +6,10 @@ source ~/.zshrc
 export PICO_SDK_PATH="~/documents/code/pico/pico-sdk"
 
 # run the program
-rm -rf build ; mkdir build ; cd build ; cmake .. ; make
+rm -rf build
+mkdir build
+cd build
+cmake ..
+make
+cd ..
+picotool load build/main.uf2
