@@ -6,28 +6,27 @@
 #define FLASH_TARGET_OFFSET (1 * 1024 * 1024)
 #define LED_PIN 25
 
-void write_to_flash(char* message) {
+void write_to_flash(char* message, int count) {
     uint32_t ints = save_and_disable_interrupts();
     flash_range_erase(FLASH_TARGET_OFFSET, FLASH_SECTOR_SIZE); // erase 4KB of flash memory
     restore_interrupts(ints);
 
     ints = save_and_disable_interrupts();
-    flash_range_program(FLASH_TARGET_OFFSET, message, 256); // write to the erased memory
+    flash_range_program(FLASH_TARGET_OFFSET, message, count); // write to the erased memory
     restore_interrupts(ints);
 }
 
 int main() {
     stdio_init_all();
 
-    sleep_ms(5000);
+    char message[256]; // must be multiples of 256 (pico block)
 
-    char message[256] = {69};
+    while (true) {
+        scanf("%c", &message);
 
-    write_to_flash(message);
+        write_to_flash(message, sizeof(message));
 
-    char read_message = *(int *)(XIP_BASE + FLASH_TARGET_OFFSET);
-    while (1) {
+        char read_message = *(int *)(XIP_BASE + FLASH_TARGET_OFFSET);
         printf("%d\n", read_message);
-        sleep_ms(500);
     }
 }
