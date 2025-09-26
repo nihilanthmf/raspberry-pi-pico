@@ -12,7 +12,7 @@ pico_sdk_init()
 
 # rest of your project
 
-add_executable(main src/main.c)
+add_executable(main src/storage.c)
 
 # Add pico_stdlib library which aggregates commonly used features
 target_link_libraries(main pico_stdlib)
