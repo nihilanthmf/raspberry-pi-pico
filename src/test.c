@@ -1,5 +1,11 @@
 #include <stdio.h>
 
+char cmd_equal_check() { 
+    return 23;
+}
+
 int main() {
-    printf("%d\n", 1u << 12);
+    int res = cmd_equal_check();
+    printf("%lu\n", sizeof(res));
+    printf("%lu\n", res);
 }
