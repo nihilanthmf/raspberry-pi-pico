@@ -1,11 +1,6 @@
 #include <stdio.h>
-
-char cmd_equal_check() { 
-    return 23;
-}
+#include <math.h>
 
 int main() {
-    int res = cmd_equal_check();
-    printf("%lu\n", sizeof(res));
-    printf("%lu\n", res);
+    printf("%d/n", pow(10, 2));
 }

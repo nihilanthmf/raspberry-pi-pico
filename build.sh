@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 # maybe you also need to run git submodule update --init inside the /pico-sdk to enable USB features
 
 # set up the env variables
