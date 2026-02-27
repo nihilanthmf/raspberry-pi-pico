@@ -12,7 +12,7 @@ pico_sdk_init()
 
 # rest of your project
 
-add_executable(main src/morsecode.c)
+add_executable(main src/sensor.c)
 
 # Add pico_stdlib library which aggregates commonly used features
 target_link_libraries(main pico_stdlib)
