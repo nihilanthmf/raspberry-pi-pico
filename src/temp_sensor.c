@@ -35,7 +35,7 @@ int main() {
         char values[5];
         int value_index = 0;
 
-        uint32_t status = save_and_disable_interrupts();
+        // uint32_t status = save_and_disable_interrupts();
 
         for (int i = 0; i < 40; ++i) {
             int low_cnt = 0;
@@ -65,7 +65,7 @@ int main() {
             }
         }
 
-        restore_interrupts(status);
+        // restore_interrupts(status);
 
         for (int i = 0; i < 5; ++i) {
             for (int j = 0; j < 8; ++j) {
